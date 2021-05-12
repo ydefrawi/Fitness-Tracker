@@ -4,10 +4,19 @@ const mongoose = require("mongoose");
 const logger = require("morgan")
 const path = require("path");
 
+
+
 //mongo
-const databaseUrl = "fitness";
+const databaseUrl = "workout";
 const collections = ["workouts"];
 const db = mongojs(databaseUrl, collections);
+
+mongoose.connect('mongodb://localhost/workout', {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
+
 
 //express
 const app = express();
@@ -17,7 +26,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(require("./routes"));
+// app.use(require("./routes"));
 
 
 db.on("error", error => {
