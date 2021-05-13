@@ -25,22 +25,13 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.use(routes);
+app.use(routes);
 
 
 
 db.on("error", error => {
     console.log("Database Error:", error);
   });
-
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutDB", {
-//     useNewUrlParser: true,
-//     useFindAndModify: false
-// });
-
-// app.get("/", (req, res) => {
-//     res.sendFile(path.join(__dirname + "./public/index.html"));
-//   });
 
 app.delete("/clearall", (req, res) => {
     db.workouts.remove({}, (error, response) => {
