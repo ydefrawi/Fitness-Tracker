@@ -20,12 +20,12 @@ nav {
   background: rgb(55,65,107);
   color: #ffffff;
   padding: 24px;
-  line-height: 3;
+  line-height: 1;
   font-size: 1.2rem;
 }
 
 .button {
-  font-size: large;
+  font-size: 40px;
 
 }
 
@@ -36,6 +36,11 @@ a:visited {
   border-radius: 12px;
   text-decoration: none;
   color: inherit;
+}
+
+.ui.button, .ui.buttons .button, .ui.buttons .or {
+  font-size: 20px;
+
 }
 
 nav a {
@@ -403,20 +408,30 @@ form > button {
 .prev-workout {
   text-align: center;
 }
+/* 
+#continue-btn{
+  margin-right: 10px;
+}
+#new-workout-btn{
+  margin-left:10px;
+}  */
 
 .prev-workout .buttons {
+  align-content: space-between;
   display: flex;
-  height: 75px;
+  height: auto;
   margin-top: 30px;
 }
 
 .buttons .ui.button {
+  border-radius:10px;
   margin: 0;
   width: 50%;
 }
 
 .buttons {
   border-radius: 12px;
+  align-content: space-between;
 
 }
 
@@ -424,17 +439,17 @@ form > button {
   padding: 10px;
 }
 
-.buttons .ui.button:first-child {
+/* .buttons .ui.button:first-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-}
+} */
 
-.buttons .ui.button:nth-child(2) {
+/* .buttons .ui.button:nth-child(2) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 0;
-}
+} */
 
 .workout-type,
 .cardio-form,
