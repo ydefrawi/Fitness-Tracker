@@ -2,4 +2,4 @@
 
 # Demonstration
 
-![Start Screen](\images\demonstration.gif)
+![Start Screen](/images/demonstration.gif)
