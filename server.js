@@ -13,11 +13,15 @@ const databaseUrl = "workout";
 const collections = ["workouts"];
 const db = mongojs(databaseUrl, collections);
 
-mongoose.connect('mongodb://localhost/workout', {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+  );
 
 
 //express
@@ -28,22 +32,22 @@ app.use(express.json());
 
 
 
-// db.on("error", error => {
-    //     console.log("Database Error:", error);
-    //   });
-    
-    // app.delete("/clearall", (req, res) => {
-        //     db.workouts.remove({}, (error, response) => {
-            //       if (error) {
-                //         res.send(error);
-                //       } else {
-                    //         res.send(response);
-                    //       }
-                    //     });
-                    //   });
-                    
-                    
-                    
+db.on("error", error => {
+    console.log("Database Error:", error);
+});
+
+app.delete("/clearall", (req, res) => {
+    db.workouts.remove({}, (error, response) => {
+        if (error) {
+            res.send(error);
+        } else {
+            res.send(response);
+        }
+    });
+});
+
+
+
 app.use("/",routes);
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
