@@ -17,17 +17,23 @@ body {
 }
 
 nav {
-  background-color: #5793fd;
+  background: rgb(55,65,107);
   color: #ffffff;
   padding: 24px;
   line-height: 3;
   font-size: 1.2rem;
 }
 
+.button {
+  font-size: large;
+
+}
+
 a,
 a:hover,
 a:active,
 a:visited {
+  border-radius: 12px;
   text-decoration: none;
   color: inherit;
 }
@@ -326,7 +332,6 @@ button {
   border-radius: 6px;
   border: 1px solid #aaa;
   padding: 10px;
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
 }
 
 form > button {
@@ -408,6 +413,11 @@ form > button {
 .buttons .ui.button {
   margin: 0;
   width: 50%;
+}
+
+.buttons {
+  border-radius: 12px;
+
 }
 
 .ui.card h2 {
