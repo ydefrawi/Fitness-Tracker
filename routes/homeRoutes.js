@@ -1,27 +1,16 @@
-const router = require('express').Router();
-const mongojs = require('mongojs');
+const express = require('express')
+const router = express.Router();
+const path = require("path");
 
-router.get('/', async (req, res) => {
-  try {
-    // // Get all projects and JOIN with user data
-    // const projectsData = await Project.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['name', 'freelancer'],
-    //     },
-    //   ],
-    // });
-    // // Serialize data so the template can read it
-    // const projects = projectsData.map((project) => project.get({ plain: true }));
+// const mongojs = require('mongojs');
 
-    // // Pass serialized data and session flag into template
-    res.render('homepage', { 
-    //   projects, 
-      name: req.session.name,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+router.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname + "../public/index.html"));
+})
+router.get('/stats', (req,res) => {
+    res.sendFile(path.join(__dirname + "../public/stats.html"));
+})
+
+router.get("/exercise", (req, res) => {
+    res.sendFile(path.join(__dirname + "../public/exercise.html"));
+  });

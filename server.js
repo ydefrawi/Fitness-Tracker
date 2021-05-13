@@ -3,7 +3,7 @@ const mongojs = require("mongojs");
 const mongoose = require("mongoose");
 const logger = require("morgan")
 const path = require("path");
-
+const routes = require("./routes")
 
 
 //mongo
@@ -23,10 +23,10 @@ const app = express();
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 
 app.use(express.static("public"));
 
-// app.use(require("./routes"));
 
 
 db.on("error", error => {
@@ -38,9 +38,9 @@ db.on("error", error => {
 //     useFindAndModify: false
 // });
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname + "./public/index.html"));
-  });
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(__dirname + "./public/index.html"));
+//   });
 
 app.delete("/clearall", (req, res) => {
     db.workouts.remove({}, (error, response) => {
