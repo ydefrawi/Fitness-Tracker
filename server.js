@@ -20,12 +20,12 @@ mongoose.connect('mongodb://localhost/workout', {
 
 //express
 const app = express();
+app.use(express.static("public"));
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
 
-app.use(express.static("public"));
+// app.use(routes);
 
 
 
