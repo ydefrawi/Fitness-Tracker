@@ -10,3 +10,5 @@
 
 # Heroku App
 [Fitness-Tracker](https://ydefrawi-fitness-tracker.herokuapp.com/)
+
+[Hi-Res-Walthrough](images/Fitness-Tracker-Walkthrough.mp4)
